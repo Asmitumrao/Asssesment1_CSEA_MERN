@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Resume Builder</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div class="homepage">
+      <h1 style="color: blue; text-align: center">Resume Builder</h1>
+      <form id="form" onsubmit="generateResume(); return false;">
+        <label for="name">Name</label><br />
+        <input type="text" id="name" width="100%" placeholder="Enter name" /><br />
+
+        <label for="email">Email</label><br />
+        <input type="email" id="email" width="500" placeholder="Enter email" /><br />
+
+        <label for="phone">Phone Number</label><br />
+        <input type="number" id="phone" width="500" placeholder="Enter phone number" /><br />
+
+        <label for="linkedin">LinkedIn</label><br />
+        <input type="text" id="linkedin" width="500" placeholder="Enter LinkedIn Profile" /><br />
+
+        <label for="github">GitHub Profile</label><br />
+        <input type="text" id="github" width="500" placeholder="Enter GitHub Profile" /><br />
+
+        <label for="exp">Work Experience</label><br />
+        <input type="text" id="exp" width="500" placeholder="Enter work experience" /><br />
+
+        <input type="submit" value="Generate Resume" />
+      </form>
+
+      <div class="resume">
+        <h1 id="name-o"></h1>
+        <img id="pic" src="https://picsum.photos/200/200" alt="photo" />
+        <h2 id="email-o"></h2>
+        <h2 id="phone-o"></h2>
+        <h3 id="linkedin-o"></h3>
+        <h3 id="github-o"></h3>
+        <h4 id="exp-o"></h4>
+        <button onclick="downloadResume()">Download Resume</button>
+
+      </div>
+    </div>
+
+    <script>
+     function generateResume() {
+  // Retrieve values from form fields
+  const name = document.getElementById("name").value;
+  const email = document.getElementById("email").value;
+  const phone = document.getElementById("phone").value;
+  const linkedin = document.getElementById("linkedin").value;
+  const github = document.getElementById("github").value;
+  const exp = document.getElementById("exp").value;
+
+  // Display the values in the resume section
+  document.getElementById("name-o").textContent = name;
+  document.getElementById("email-o").textContent = email;
+  document.getElementById("phone-o").textContent = phone;
+  document.getElementById("linkedin-o").textContent = linkedin;
+  document.getElementById("github-o").textContent = github;
+  document.getElementById("exp-o").textContent = exp;
+
+  // Hide the form and show the resume
+  document.getElementById("form").style.display = "none";
+  document.querySelector(".resume").style.display = "flex";
+}
+    </script>
+  </body>
+</html>
